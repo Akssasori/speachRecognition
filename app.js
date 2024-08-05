@@ -2,6 +2,7 @@
 
     var speakBtn = document.querySelector('#speakbt');
     var resultSpeaker = document.querySelector('#resultSpeak');
+    var initialText = "Clique aqui para falar";
 
     if (window.SpeechRecognition || window.webkitSpeechRecognition) {
         var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
@@ -28,7 +29,11 @@
             console.log(resultSpeak);
             resultSpeak.innerHTML = resultSpeak;
 
-            readCommand(resultSpeak.toLowerCase())
+            readCommand(resultSpeak.toLowerCase());
+
+            setTimeout(function () {
+                resultSpeaker.innerHTML = initialText;
+            }, 3000);
 
         }, false)
 
